@@ -25,9 +25,7 @@ def install(path):
     for file in filelist:
         filepath = os.path.join(path, file)
         if os.path.exists(filepath):
-
             status,output = subprocess.getstatusoutput('adb install ' + filepath)
-
             if output.split('\n')[-1] != 'Success':
                 not_install_list.append(file + ',')
     print('安装完成，安装失败的app: %s ' % not_install_list)
